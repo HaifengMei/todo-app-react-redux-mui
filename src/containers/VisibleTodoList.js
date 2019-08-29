@@ -23,14 +23,14 @@ function VisibleTodoList(props) {
 
   return (
     <div>
-      <p>
+      {/* <p>
         {lastUpdated && (
           <span>
             Last updated at {new Date(lastUpdated).toLocaleTimeString()}.{" "}
           </span>
         )}
         {!isFetching && <button onClick={handleRefreshClick}>Refresh</button>}
-      </p>
+      </p> */}
       {isFetching && todos.length === 0 && <h2>Loading...</h2>}
       {!isFetching && todos.length === 0 && <h2>Empty.</h2>}
       {todos.length > 0 && (

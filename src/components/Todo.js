@@ -12,10 +12,7 @@ import { withStyles } from "@material-ui/styles";
 const styles = theme => ({
   item: {
     backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary,
-    "&:hover:not($disabled):not($error):not($focused):before": {
-      backgroundColor: "red"
-    }
+    color: theme.palette.text.primary
   }
 });
 
@@ -46,6 +43,7 @@ const Todo = ({ onClick, onRemove, Completed, Text, ID, classes }) => (
 );
 
 Todo.propTypes = {
+  ID: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
   Completed: PropTypes.bool.isRequired,
   Text: PropTypes.string.isRequired,
