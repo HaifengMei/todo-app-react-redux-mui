@@ -7,17 +7,9 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/DeleteForever";
-import { withStyles } from "@material-ui/styles";
-
-const styles = theme => ({
-  item: {
-    backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary
-  }
-});
 
 const Todo = ({ onClick, onRemove, Completed, Text, ID, classes }) => (
-  <ListItem dense button onClick={onClick} className={classes.item}>
+  <ListItem dense button onClick={onClick}>
     <ListItemIcon>
       <Checkbox
         edge="start"
@@ -50,4 +42,4 @@ Todo.propTypes = {
   onRemove: PropTypes.func.isRequired
 };
 
-export default withStyles(styles)(Todo);
+export default Todo;
