@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addTodo } from "../actions";
 import TextField from "@material-ui/core/TextField";
-import { Paper, Button, Divider, Grid } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SendIcon from "@material-ui/icons/Send";
@@ -53,7 +52,7 @@ const AddTodo = ({ dispatch }) => {
               edge="end"
               aria-label="add todo"
               onClick={handleSubmit}
-              disabled={text.trim() == ""}
+              disabled={text.trim() === ""}
             >
               <SendIcon />
             </IconButton>

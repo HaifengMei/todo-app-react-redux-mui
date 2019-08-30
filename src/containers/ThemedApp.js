@@ -1,10 +1,8 @@
 import { connect } from "react-redux";
-import { setThemeSelected } from "../actions";
-import Link from "../components/Link";
 import { getTheme } from "../selectors";
 import App from "../components/App";
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   const theme = getTheme(state.themeSelected);
   return {
     theme
