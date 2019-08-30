@@ -56,6 +56,8 @@ const AddTodo = ({ dispatch }) => {
       onChange={handleChange}
       onKeyPress={onKeyPressed}
       className={classes.addTodo}
+      multiline
+      rowsMax={3}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
