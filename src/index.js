@@ -8,12 +8,8 @@ import { BrowserRouter } from "react-router-dom";
 import "typeface-roboto";
 import ThemedApp from "./containers/ThemedApp";
 import "./index.css";
-import Cookies from "universal-cookie";
-
-const cookies = new Cookies();
 
 const store = configureStore();
-console.log(cookies.get("myCat"));
 
 store.runSaga(rootSaga);
 
