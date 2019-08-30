@@ -20,9 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary,
-    top: "auto",
-    bottom: 0
+    color: theme.palette.text.primary
   },
   fabButton: {
     position: "absolute",
@@ -46,12 +44,6 @@ const TodoApBar = props => {
     >
       <Toolbar>
         <FilterTodos />
-        {/* <IconButton edge="start" color="inherit" aria-label="Searchbar">
-          <SearchIcon />
-        </IconButton> */}
-        {/* <Fab color="secondary" aria-label="add" className={classes.fabButton}>
-          <AddIcon />
-        </Fab> */}
         <div className={classes.grow} />
 
         <ThemeSwitcher edge="end" aria-label="theme-switcher" />
