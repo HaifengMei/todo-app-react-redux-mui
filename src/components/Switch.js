@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import DayIcon from "@material-ui/icons/WbSunnyRounded";
 import NightIcon from "@material-ui/icons/Brightness2";
 import PropTypes from "prop-types";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const { DARK, LIGHT } = ThemeSelectors;
 
@@ -19,13 +20,17 @@ const ThemeSwitcher = ({ changeTheme, darkMode }) => {
     <Typography component="div">
       <Grid component="label" container alignItems="center" spacing={1}>
         <Grid item>
-          <DayIcon />
+          <Tooltip title="Day Mode">
+            <DayIcon />
+          </Tooltip>
         </Grid>
         <Grid item>
           <Switch checked={darkMode} onChange={handleChange} />
         </Grid>
         <Grid item>
-          <NightIcon />
+          <Tooltip title="Nigt Mode">
+            <NightIcon />
+          </Tooltip>
         </Grid>
       </Grid>
     </Typography>

@@ -7,6 +7,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/DeleteForever";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const Todo = ({ onClick, onRemove, Completed, Text, ID, classes }) => (
   <ListItem dense button onClick={onClick}>
@@ -27,9 +28,11 @@ const Todo = ({ onClick, onRemove, Completed, Text, ID, classes }) => (
       }}
     />
     <ListItemSecondaryAction>
-      <IconButton edge="end" aria-label="delete" onClick={onRemove}>
-        <DeleteIcon />
-      </IconButton>
+      <Tooltip title="Remove todo">
+        <IconButton edge="end" aria-label="delete" onClick={onRemove}>
+          <DeleteIcon />
+        </IconButton>
+      </Tooltip>
     </ListItemSecondaryAction>
   </ListItem>
 );
