@@ -5,7 +5,7 @@ const cookies = new Cookies();
 
 const { LIGHT } = ThemeSelectors;
 
-const initialState = cookies.get("theme") ? cookies.get("theme") : LIGHT;
+const initialState = cookies.get("theme") || LIGHT;
 
 const themeSelected = (state = initialState, action) => {
   switch (action.type) {
