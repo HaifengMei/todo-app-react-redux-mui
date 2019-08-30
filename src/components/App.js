@@ -2,15 +2,13 @@ import React from "react";
 import Footer from "./Footer";
 import AddTodo from "../containers/AddTodo";
 import VisibleTodoList from "../containers/VisibleTodoList";
-import NavigationContainer from "../containers/NavigationContainer";
 import { Route } from "react-router-dom";
-import { withCookies } from "react-cookie";
 import { ThemeProvider } from "@material-ui/styles";
 import { Paper, Grid, Divider } from "@material-ui/core";
-import { Container } from "@material-ui/core";
 import AppBar from "./AppBar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+
 const useStyles = makeStyles(theme => ({
   text: {
     padding: theme.spacing(2, 2, 0)
@@ -40,7 +38,11 @@ const App = props => {
               Todos
             </Typography>
             <Divider />
-            <Route exact path="/" component={VisibleTodoList} />
+            <Route
+              exact
+              path="/"
+              render={() => <VisibleTodoList cookies={props.cookies} />}
+            />
             <AddTodo />
             <AppBar />
           </Paper>

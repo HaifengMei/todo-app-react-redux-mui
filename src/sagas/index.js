@@ -1,6 +1,8 @@
 import { take, call, put, fork } from "redux-saga/effects";
 import * as actions from "../actions";
 import { api } from "../services";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 export function* invalidateTodos() {
   while (true) {
@@ -11,7 +13,15 @@ export function* invalidateTodos() {
 
 export function* fetchTodos() {
   yield put(actions.requestTodos());
-  const todos = yield call(api.fetchTodos);
+
+  const todosCookies = cookies.get("todos");
+  let todos = todosCookies || [];
+  // if (todosCookies) {
+  //   todos = todosCookies;
+  // } else {
+  //   todos = yield call(api.fetchTodos);
+  //   cookies.set("todos", todos, { path: "/" });
+  // }
   yield put(actions.receiveTodos(todos));
 }
 
