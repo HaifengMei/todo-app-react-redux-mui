@@ -5,22 +5,24 @@ import * as serviceWorker from "./serviceWorker";
 import configureStore from "./store/configureStore";
 import rootSaga from "./sagas";
 import { BrowserRouter } from "react-router-dom";
-import { CookiesProvider } from "react-cookie";
 import "typeface-roboto";
 import ThemedApp from "./containers/ThemedApp";
 import "./index.css";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 const store = configureStore();
+console.log(cookies.get("myCat"));
+
 store.runSaga(rootSaga);
 
 render(
-  <CookiesProvider>
-    <Provider store={store}>
-      <BrowserRouter>
-        <ThemedApp />
-      </BrowserRouter>
-    </Provider>
-  </CookiesProvider>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <ThemedApp />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 

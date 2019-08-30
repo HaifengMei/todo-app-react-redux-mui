@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { toggleTodo, invalidateTodos, removeTodo } from "../actions";
 import TodoList from "../components/TodoList";
 import { getVisibleTodos } from "../selectors";
-
+import EmptyTodoList from "../components/EmptyTodoList";
 function VisibleTodoList(props) {
   const {
     todos,
@@ -32,7 +32,7 @@ function VisibleTodoList(props) {
         {!isFetching && <button onClick={handleRefreshClick}>Refresh</button>}
       </p> */}
       {isFetching && todos.length === 0 && <h2>Loading...</h2>}
-      {!isFetching && todos.length === 0 && <h2>Empty.</h2>}
+      {!isFetching && todos.length === 0 && <EmptyTodoList />}
       {todos.length > 0 && (
         <div style={{ opacity: isFetching ? 0.5 : 1 }}>
           <TodoList
