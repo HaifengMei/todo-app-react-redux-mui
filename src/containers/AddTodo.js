@@ -7,6 +7,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SendIcon from "@material-ui/icons/Send";
 import Cookies from "universal-cookie";
 import { makeStyles } from "@material-ui/core/styles";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles(theme => ({
   addTodo: {
@@ -55,17 +56,21 @@ const AddTodo = ({ dispatch }) => {
       onChange={handleChange}
       onKeyPress={onKeyPressed}
       className={classes.addTodo}
+      multiline
+      rowsMax={3}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <IconButton
-              edge="end"
-              aria-label="add todo"
-              onClick={handleSubmit}
-              disabled={text.trim() === ""}
-            >
-              <SendIcon />
-            </IconButton>
+            <Tooltip title="Add todo">
+              <IconButton
+                edge="end"
+                aria-label="add todo"
+                onClick={handleSubmit}
+                disabled={text.trim() === ""}
+              >
+                <SendIcon />
+              </IconButton>
+            </Tooltip>
           </InputAdornment>
         )
       }}
