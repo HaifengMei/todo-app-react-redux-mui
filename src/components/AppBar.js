@@ -11,6 +11,7 @@ import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import SearchIcon from "@material-ui/icons/Search";
 import { Container } from "@material-ui/core";
+import FilterTodos from "../containers/FilterTodos";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -52,13 +53,15 @@ const TodoApBar = props => {
       className={classes.appBar}
     >
       <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="Searchbar">
+        <FilterTodos />
+        {/* <IconButton edge="start" color="inherit" aria-label="Searchbar">
           <SearchIcon />
-        </IconButton>
+        </IconButton> */}
         {/* <Fab color="secondary" aria-label="add" className={classes.fabButton}>
           <AddIcon />
         </Fab> */}
         <div className={classes.grow} />
+
         <ThemeSwitcher edge="end" aria-label="theme-switcher" />
       </Toolbar>
     </AppBar>

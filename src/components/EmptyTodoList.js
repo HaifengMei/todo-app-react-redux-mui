@@ -11,7 +11,7 @@ const EmptyTodoList = () => (
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary="Your todo list is EMPTY. Try adding something" />
+      <ListItemText primary="Your have no active todos. Try adding something" />
     </ListItem>
   </List>
 );
