@@ -6,36 +6,46 @@ import NavigationContainer from "../containers/NavigationContainer";
 import { Route } from "react-router-dom";
 import { withCookies } from "react-cookie";
 import { ThemeProvider } from "@material-ui/styles";
-import { Paper } from "@material-ui/core";
+import { Paper, Grid, Divider } from "@material-ui/core";
 import { Container } from "@material-ui/core";
 import AppBar from "./AppBar";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles(theme => ({
+  text: {
+    padding: theme.spacing(2, 2, 0)
+  },
+  gridItem: {
+    width: "50%"
+  },
+  root: {
+    height: "100%",
+    margin: 0,
+    padding: 0
+  },
+  app: {
+    height: "100%",
+    display: "flex"
+  }
+}));
 
 const App = props => {
-  console.log(props.theme);
+  const classes = useStyles();
   return (
     <ThemeProvider theme={props.theme}>
-      {/* <Taskboard /> */}
-      {/* <Container>
-      <Row className="row">
-        <Col xs={12}>
-          <h1>To Do List</h1>
-          <NavigationContainer />
-          <AddTodo />
-          <Route
-            exact
-            path="/"
-            render={() => <VisibleTodoList cookies={props.cookies} />}
-          />
-          <Footer />
-        </Col>
-      </Row>
-    </Container> */}
-      <Container maxWidth="lg">
-        <AppBar />
-        <Paper>
-          <Route exact path="/" component={VisibleTodoList} />
-        </Paper>
-      </Container>
+      <Grid container alignItems="center" justify="center" direction="column">
+        <Grid item className={classes.gridItem}>
+          <Paper>
+            <Typography className={classes.text} variant="h5" gutterBottom>
+              Todos
+            </Typography>
+            <Divider />
+            <Route exact path="/" component={VisibleTodoList} />
+            <AddTodo />
+            <AppBar />
+          </Paper>
+        </Grid>
+      </Grid>
     </ThemeProvider>
   );
 };

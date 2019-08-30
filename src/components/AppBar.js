@@ -7,9 +7,16 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ThemeSwitcher from "../containers/ThemeSwitcher";
+import Fab from "@material-ui/core/Fab";
+import AddIcon from "@material-ui/icons/Add";
+import SearchIcon from "@material-ui/icons/Search";
+import { Container } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
+    flexGrow: 1
+  },
+  grow: {
     flexGrow: 1
   },
   menuButton: {
@@ -20,7 +27,17 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary
+    color: theme.palette.text.primary,
+    top: "auto",
+    bottom: 0
+  },
+  fabButton: {
+    position: "absolute",
+    zIndex: 1,
+    top: -30,
+    left: 0,
+    right: 0,
+    margin: "0 auto"
   }
 }));
 
@@ -28,24 +45,23 @@ const TodoApBar = props => {
   const classes = useStyles(props);
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static" className={classes.appBar}>
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Todos
-          </Typography>
-          <ThemeSwitcher />
-        </Toolbar>
-      </AppBar>
-    </div>
+    <AppBar
+      elevation={0}
+      position="sticky"
+      color="primary"
+      className={classes.appBar}
+    >
+      <Toolbar>
+        <IconButton edge="start" color="inherit" aria-label="Searchbar">
+          <SearchIcon />
+        </IconButton>
+        {/* <Fab color="secondary" aria-label="add" className={classes.fabButton}>
+          <AddIcon />
+        </Fab> */}
+        <div className={classes.grow} />
+        <ThemeSwitcher edge="end" aria-label="theme-switcher" />
+      </Toolbar>
+    </AppBar>
   );
 };
 

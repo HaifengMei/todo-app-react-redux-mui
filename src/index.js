@@ -8,6 +8,8 @@ import { BrowserRouter } from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
 import "typeface-roboto";
 import ThemedApp from "./containers/ThemedApp";
+import "./index.css";
+
 const store = configureStore();
 store.runSaga(rootSaga);
 
