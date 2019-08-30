@@ -6,14 +6,8 @@ import { VisibilityFilters } from "../actions";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import { makeStyles } from "@material-ui/core/styles";
 
 const { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } = VisibilityFilters;
-const useStyles = makeStyles(theme => ({
-  filter: {
-    marginLeft: "10px"
-  }
-}));
 
 const Filter = ({ filter, setFilter }) => {
   function handleChange(event) {
@@ -33,9 +27,8 @@ const Filter = ({ filter, setFilter }) => {
 };
 
 Filter.propTypes = {
-  active: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired
+  filter: PropTypes.string.isRequired,
+  setFilter: PropTypes.func.isRequired
 };
 
 export default Filter;

@@ -6,20 +6,12 @@ import TodoList from "../components/TodoList";
 import { getVisibleTodos } from "../selectors";
 import EmptyTodoList from "../components/EmptyTodoList";
 function VisibleTodoList(props) {
-  const {
-    todos,
-    isFetching,
-    lastUpdated,
-    refreshTodos,
-    toggleTodo,
-    removeTodo,
-    cookies
-  } = props;
+  const { todos, isFetching, refreshTodos, toggleTodo, removeTodo } = props;
 
-  function handleRefreshClick(e) {
-    e.preventDefault();
-    refreshTodos();
-  }
+  // function handleRefreshClick(e) {
+  //   e.preventDefault();
+  //   refreshTodos();
+  // }
 
   return (
     <div>
