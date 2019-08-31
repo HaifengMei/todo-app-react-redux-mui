@@ -7,7 +7,7 @@ import {
   summerTheme
 } from "../commons/Theme";
 const { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } = VisibilityFilters;
-const { SPRING, SUMMER, AUTUMN } = ThemeSelectors;
+const { WINTER, SUMMER, AUTUMN } = ThemeSelectors;
 const getVisibilityFilter = state => state.visibilityFilter;
 const getTodos = state => state.todos.items;
 
@@ -29,13 +29,13 @@ export const getVisibleTodos = createSelector(
 
 export const getTheme = themeSelected => {
   switch (themeSelected) {
-    case SPRING:
-      return springTheme;
+    case WINTER:
+      return winterTheme;
     case AUTUMN:
       return autumnTheme;
     case SUMMER:
       return summerTheme;
     default:
-      return winterTheme;
+      return springTheme;
   }
 };
