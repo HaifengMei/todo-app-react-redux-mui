@@ -3,12 +3,12 @@ import AddTodo from "../containers/AddTodo";
 import VisibleTodoList from "../containers/VisibleTodoList";
 import { Route } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/styles";
-import { Paper, Grid, Divider } from "@material-ui/core";
+import { Paper, Grid } from "@material-ui/core";
 import AppBar from "./AppBar";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import ThemeSwitcher from "../containers/ThemeSwitcher";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,12 +20,7 @@ const useStyles = makeStyles(theme => ({
     position: "sticky",
     top: 0
   },
-  headerBG: {
-    backgroundColor: theme.palette.background.default
-  },
-  text: {
-    padding: theme.spacing(2, 2, 0)
-  },
+
   gridItem: {
     width: "50%"
   },
@@ -67,12 +62,9 @@ const App = props => {
           className={matches ? classes.gridItem : ""}
         >
           <Paper className={classes.root}>
-            <Grid item xs={12}>
-              <Typography className={classes.text} variant="h5" gutterBottom>
-                Todos
-              </Typography>
-              <Divider />
-            </Grid>
+            {/* <AppHeader /> */}
+            <AppBar />
+
             <Grid
               item
               xs={12}
@@ -86,7 +78,7 @@ const App = props => {
             </Grid>
             <Grid item xs={12} className={matches ? "" : classes.footer}>
               <AddTodo />
-              <AppBar />
+              <ThemeSwitcher />
             </Grid>
           </Paper>
         </Grid>

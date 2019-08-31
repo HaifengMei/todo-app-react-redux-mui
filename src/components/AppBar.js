@@ -2,10 +2,13 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import ThemeSwitcher from "../containers/ThemeSwitcher";
 import FilterTodos from "../containers/FilterTodos";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
+  text: {
+    padding: theme.spacing(2, 2, 0)
+  },
   root: {
     flexGrow: 1
   },
@@ -19,8 +22,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1
   },
   appBar: {
-    backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary
+    backgroundColor: theme.palette.primary.main
   },
   fabButton: {
     position: "absolute",
@@ -43,10 +45,11 @@ const TodoApBar = props => {
       className={classes.appBar}
     >
       <Toolbar>
-        <FilterTodos />
+        <Typography className={classes.title} variant="h6">
+          To Dos
+        </Typography>
         <div className={classes.grow} />
-
-        <ThemeSwitcher edge="end" aria-label="theme-switcher" />
+        <FilterTodos />
       </Toolbar>
     </AppBar>
   );

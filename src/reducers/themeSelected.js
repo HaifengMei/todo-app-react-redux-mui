@@ -3,9 +3,9 @@ import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-const { LIGHT } = ThemeSelectors;
+const { AUTUMN } = ThemeSelectors;
 
-const initialState = cookies.get("theme") || LIGHT;
+const initialState = cookies.get("theme") || AUTUMN;
 
 const themeSelected = (state = initialState, action) => {
   switch (action.type) {

@@ -1,39 +1,58 @@
 import React from "react";
 import { ThemeSelectors } from "../actions";
-import Switch from "@material-ui/core/Switch";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import DayIcon from "@material-ui/icons/WbSunnyRounded";
-import NightIcon from "@material-ui/icons/Brightness2";
 import PropTypes from "prop-types";
-import Tooltip from "@material-ui/core/Tooltip";
 
-const { DARK, LIGHT } = ThemeSelectors;
+import WinterIcon from "@material-ui/icons/AcUnit";
+import Springicon from "@material-ui/icons/LocalFlorist";
+import SummerIcon from "@material-ui/icons/WbSunny";
+import AutumnIcon from "@material-ui/icons/Spa";
+import BottomNavigation from "@material-ui/core/BottomNavigation";
+import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import { makeStyles } from "@material-ui/core/styles";
 
-const ThemeSwitcher = ({ changeTheme, darkMode }) => {
-  function handleChange(event, darkMode) {
-    const theme = darkMode ? DARK : LIGHT;
-    changeTheme(theme);
+const { WINTER, AUTUMN, SPRING, SUMMER } = ThemeSelectors;
+
+const useStyles = makeStyles(theme => ({
+  switch: {
+    backgroundColor: theme.palette.background.default
+  }
+}));
+
+const ThemeSwitcher = props => {
+  const { changeTheme, darkMode, themeSelected } = props;
+  const classes = useStyles();
+
+  function handleChange(event) {
+    changeTheme(event.target.value);
   }
 
   return (
-    <Typography component="div">
-      <Grid component="label" container alignItems="center" spacing={1}>
-        <Grid item>
-          <Tooltip title="Day Mode">
-            <DayIcon />
-          </Tooltip>
-        </Grid>
-        <Grid item>
-          <Switch checked={darkMode} onChange={handleChange} />
-        </Grid>
-        <Grid item>
-          <Tooltip title="Nigt Mode">
-            <NightIcon />
-          </Tooltip>
-        </Grid>
-      </Grid>
-    </Typography>
+    <BottomNavigation
+      value={themeSelected}
+      onChange={(event, newValue) => changeTheme(newValue)}
+      showLabels
+    >
+      <BottomNavigationAction
+        value={SPRING}
+        label="Spring"
+        icon={<Springicon />}
+      />
+      <BottomNavigationAction
+        value={SUMMER}
+        label="Summer"
+        icon={<SummerIcon />}
+      />
+      <BottomNavigationAction
+        value={AUTUMN}
+        label="AUTUMN"
+        icon={<AutumnIcon />}
+      />
+      <BottomNavigationAction
+        value={WINTER}
+        label="Winter"
+        icon={<WinterIcon />}
+      />
+    </BottomNavigation>
   );
 };
 

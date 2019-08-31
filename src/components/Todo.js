@@ -14,13 +14,16 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   breakWord: {
     overflowWrap: "break-word"
+  },
+  todo: {
+    // color: theme.palette.primary.dark
   }
 }));
 
 const Todo = ({ onClick, onRemove, Completed, Text, ID }) => {
   const classes = useStyles();
   return (
-    <ListItem dense button onClick={onClick} alighItems="flext-start">
+    <ListItem className={classes.todo} dense button onClick={onClick} divider>
       <ListItemIcon>
         <Checkbox
           edge="start"
@@ -33,11 +36,7 @@ const Todo = ({ onClick, onRemove, Completed, Text, ID }) => {
       <ListItemText
         id={ID}
         primary={
-          <Typography
-            variant="subtitle1"
-            className={classes.breakWord}
-            paragraph
-          >
+          <Typography variant="body1" className={classes.breakWord}>
             {Text}
           </Typography>
         }
