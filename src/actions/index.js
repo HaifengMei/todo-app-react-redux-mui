@@ -54,8 +54,10 @@ export const VisibilityFilters = {
 };
 
 export const ThemeSelectors = {
-  LIGHT: "LIGHT",
-  DARK: "DARK"
+  AUTUMN: "AUTUMN",
+  WINTER: "WINTER",
+  SUMMER: "SUMMER",
+  SPRING: "SPRING"
 };
 
 export const setThemeSelected = themeSelected => ({

@@ -1,13 +1,51 @@
 import { createMuiTheme } from "@material-ui/core/styles";
+import {
+  green,
+  brown,
+  orange,
+  blue,
+  grey,
+  amber,
+  yellow
+} from "@material-ui/core/colors";
 
-export const darkTheme = createMuiTheme({
+export const summerTheme = createMuiTheme({
   palette: {
-    type: "dark"
+    primary: yellow,
+    secondary: blue,
+    background: {
+      default: "#ffee58"
+    }
   }
 });
 
-export const lightTheme = createMuiTheme({
+export const winterTheme = createMuiTheme({
   palette: {
-    type: "light"
+    primary: grey,
+    secondary: grey,
+    background: {
+      default: "#e0e0e0",
+      light: "#f5f5f5"
+    }
+  }
+});
+
+export const autumnTheme = createMuiTheme({
+  palette: {
+    primary: amber,
+    secondary: orange,
+    background: {
+      default: "#ffca28"
+    }
+  }
+});
+
+export const springTheme = createMuiTheme({
+  palette: {
+    primary: green,
+    secondary: brown,
+    background: {
+      default: "#66bb6a"
+    }
   }
 });

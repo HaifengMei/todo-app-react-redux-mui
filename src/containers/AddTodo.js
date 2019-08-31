@@ -11,8 +11,11 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles(theme => ({
   addTodo: {
-    backgroundColor: theme.palette.background.paper,
-    margin: 0
+    margin: 0,
+    backgroundColor: theme.palette.primary.light
+  },
+  floatingLabelFocusStyle: {
+    color: "#FFF"
   }
 }));
 const cookies = new Cookies();
@@ -61,16 +64,16 @@ const AddTodo = ({ dispatch }) => {
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <Tooltip title="Add todo">
-              <IconButton
-                edge="end"
-                aria-label="add todo"
-                onClick={handleSubmit}
-                disabled={text.trim() === ""}
-              >
+            <IconButton
+              edge="end"
+              aria-label="add todo"
+              onClick={handleSubmit}
+              disabled={text.trim() === ""}
+            >
+              <Tooltip title="Add todo">
                 <SendIcon />
-              </IconButton>
-            </Tooltip>
+              </Tooltip>
+            </IconButton>
           </InputAdornment>
         )
       }}

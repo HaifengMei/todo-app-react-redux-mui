@@ -2,11 +2,12 @@ import { connect } from "react-redux";
 import { setThemeSelected } from "../actions";
 import Switch from "../components/Switch";
 import { ThemeSelectors } from "../actions";
-const { DARK } = ThemeSelectors;
+const { WINTER } = ThemeSelectors;
 
 const mapStateToProps = state => {
   return {
-    darkMode: state.themeSelected === DARK
+    darkMode: state.themeSelected === WINTER,
+    themeSelected: state.themeSelected
   };
 };
 

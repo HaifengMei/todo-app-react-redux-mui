@@ -1,8 +1,13 @@
 import { createSelector } from "reselect";
 import { VisibilityFilters, ThemeSelectors } from "../actions";
-import { darkTheme, lightTheme } from "../commons/Theme";
+import {
+  winterTheme,
+  autumnTheme,
+  springTheme,
+  summerTheme
+} from "../commons/Theme";
 const { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } = VisibilityFilters;
-const { DARK } = ThemeSelectors;
+const { WINTER, SUMMER, AUTUMN } = ThemeSelectors;
 const getVisibilityFilter = state => state.visibilityFilter;
 const getTodos = state => state.todos.items;
 
@@ -24,9 +29,13 @@ export const getVisibleTodos = createSelector(
 
 export const getTheme = themeSelected => {
   switch (themeSelected) {
-    case DARK:
-      return darkTheme;
+    case WINTER:
+      return winterTheme;
+    case AUTUMN:
+      return autumnTheme;
+    case SUMMER:
+      return summerTheme;
     default:
-      return lightTheme;
+      return springTheme;
   }
 };
